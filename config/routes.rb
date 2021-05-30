@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
   # Chat Room Routes
   resources :chat_rooms, only: [:create] do
     member do
