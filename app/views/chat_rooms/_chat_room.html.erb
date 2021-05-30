@@ -2,7 +2,7 @@
   <div class="panel panel-default" data-chatroom-id="<%= chat_room.id %>">
     <div class="panel-heading">
       <%= link_to chat_room.opposed_user(user).name&.titleize, '', class: 'toggle-window' %>
-      <%= link_to "x", close_chat_room_path(chat_room), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
+      <%= link_to "X", close_chat_room_path(chat_room), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
     </div>
 
     <div class="panel-body" style="display: none;">
@@ -16,12 +16,6 @@
         <%= f.text_area :body, class: "form-control" %><br>
         <%= f.submit "Send", class: "btn btn-success" %>
       <% end %>
-      <!-- <form class="new_message">
-        <input name="chat_room_id" type="hidden" value="<%= chat_room.id %>">
-        <input name="user_id" type="hidden" value="<%= user.id %>">
-        <textarea name="body" class="form-control"></textarea>
-        <input type="submit" class="btn btn-success" value="Send">
-      </form> -->
     </div>
   </div>
 </li>

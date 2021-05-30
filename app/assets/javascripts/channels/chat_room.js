@@ -2,7 +2,7 @@ App.chat_room = App.cable.subscriptions.create("ChatRoomChannel", {
   connected: function() {},
   disconnected: function() {},
   received: function(data) {
-    var chatroom = $('#chatrooms-list').find("[data-chatroom-id='" + data['chatroom_id'] + "']");
+    var chatroom = $('#chatrooms-list').find("[data-chatroom-id='" + data['chat_room_id'] + "']");
 
     if (data['window'] !== undefined) {
       var chatroom_visible = chatroom.is(':visible');
@@ -17,7 +17,7 @@ App.chat_room = App.cable.subscriptions.create("ChatRoomChannel", {
       }
       else {
         $('#chatrooms-list').append(data['window']);
-        chatroom = $('#chatrooms-list').find("[data-chatroom-id='" + data['chatroom_id'] + "']");
+        chatroom = $('#chatrooms-list').find("[data-chatroom-id='" + data['chat_room_id'] + "']");
         chatroom.find('.panel-body').toggle();
       }
     }
