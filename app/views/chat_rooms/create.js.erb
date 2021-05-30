@@ -1,0 +1,15 @@
+var chat_rooms = $('#chatrooms-list');
+
+var chat_room = chat_rooms.find("[data-chatroom-id='" + "<%= @chat_room.id %>" + "']");
+
+if (chat_room.length !== 1) {
+  chat_rooms.append("<%= j(render 'chat_rooms/chat_room', chat_room: @chat_room, user: current_user) %>");
+  chat_room = chat_rooms.find("[data-chatroom-id='" + "<%= @chat_room.id %>" + "']");
+}
+
+chat_room.find('.panel-body').show();
+
+var messages_list = chat_room.find('.messages-list');
+
+var height = messages_list[0].scrollHeight;
+messages_list.scrollTop(height);

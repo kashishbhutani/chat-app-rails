@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat-App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+   <body>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-danger">
+        <%= msg %>
+      </div>
+    <% end %>
+    <%= render partial: 'shared/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render partial: 'shared/footer' %>
+  </body>
+</html>
